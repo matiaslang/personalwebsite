@@ -6,8 +6,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          This is the beginning of something huge :) 
+          Hello to my personal website!
         </p>
+        <p>
+          I will be more adding information about me to this page in the near future.
+        </p>
+        <p>-Matias Lang</p>
       </header>
     </div>
   );
