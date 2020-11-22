@@ -9,7 +9,7 @@ function App() {
           Hello to my personal website!
         </p>
         <p>
-          I will be more adding information about me to this page in the near future.
+          I will be adding more information about me to this page in the near future.
         </p>
         <p>-Matias Lang</p>
       </header>
