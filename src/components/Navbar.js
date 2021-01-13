@@ -2,12 +2,16 @@
 import React, { Component } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { Link } from 'react-router-dom'
+import colors from '../styles/Colors'
 
 const Wrapper = styled.section`
   padding: 0.5rem;
-  background: papayawhip;
+  background: ${colors.topBarBackground};
   flex-direction: row-reverse;
   overflow: hidden;
+  border-bottom: 1px solid #828282;
+  border-bottom-style: outset;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
 `
 const shakeButton = keyframes`
 10%, 90% {
@@ -37,34 +41,50 @@ const rotate = keyframes`
   }
 `
 
+const NameButton = styled.div`
+  font-family: East Sea Dokdo;
+  font-style: Cursive;
+  font-size: 2em;
+  margin: 0.5em;
+  float: left;
+`
+
 const Button = styled.button`
   /* Adapt the colors based on primary prop */
-  background: ${(props) => (props.primary ? 'palevioletred' : 'white')};
-  color: ${(props) => (props.primary ? 'white' : 'palevioletred')};
+  background: ${colors.buttonBackground};
+  color: ${colors.buttonTextColor};
 
   font-size: 1em;
   margin: 1em;
-  padding: 0.25em 1em;
+  padding: 0.2em 1.3em;
   border: 2px solid palevioletred;
   border-radius: 3px;
-
   float: right;
+  transition: all 0.1s;
+
+  &:hover {
+    transform: translateY(5px);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+    background: ${colors.buttonTextColor};
+    color: ${colors.buttonBackground};
+  }
 `
 
 class TopBar extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { animate: false }
-  }
-
   render() {
     return (
       <Wrapper>
+        <Link to='/contact'>
+          <Button>Contact</Button>
+        </Link>
         <Link to='/skills'>
           <Button>Skills</Button>
         </Link>
         <Link to='/'>
-          <Button>Home</Button>
+          <Button primary>Home</Button>
+        </Link>
+        <Link to='/'>
+          <NameButton>Matias Lang</NameButton>
         </Link>
       </Wrapper>
     )

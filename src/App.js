@@ -2,24 +2,29 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Main from './Main'
 import styled from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
+import colors from './styles/Colors'
 
-const Wrapper = styled.a``
+const GlobalStyles = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap');
+  body {
+    font-family: 'East Sea Dokdo', sans-serif;
+  }
+`
 
-const Timer = () => {
-  let year = new Date().getFullYear()
-
-  return (
-    <div>
-      <p>ps. these pages should be finished by the end of the year {year}</p>
-    </div>
-  )
-}
+const Wrapper = styled.div`
+  background-color: ${colors.background};
+  height: 1500px;
+`
 
 function App() {
   return (
     <div className='App'>
-      <Navbar />
-      <Main />
+      <Wrapper color={colors}>
+        <GlobalStyles />
+        <Navbar />
+        <Main />
+      </Wrapper>
     </div>
   )
 }
