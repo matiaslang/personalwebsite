@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { Link } from 'react-router-dom'
 import colors from '../styles/Colors'
+import downArrow from '../styles/icons/downArrow.png'
+import upArrow from '../styles/icons/upArrow.png'
 
 const Wrapper = styled.section`
   padding: 0.5rem;
@@ -15,8 +17,8 @@ const Wrapper = styled.section`
 `
 
 const ButtonWrapper = styled.section`
-  border-bottom: 1px solid #828282;
-  flex-direction: row;
+  border-bottom: ${(props) => (props.visible ? '1px solid #828282' : '')};
+  //flex-direction: row;
   overflow: hidden;
 `
 const shakeButton = keyframes`
@@ -56,12 +58,10 @@ const NameButton = styled.div`
 
 const Button = styled.button`
   /* Adapt the colors based on primary prop */
-  visibility: ${(props) => props.visible} ? hidden : visible;
-  display: ${(props) => props.visible} ? none : visible;
+  display: ${(props) => (props.visible ? 'visible' : 'none')};
 
   background: ${colors.buttonBackground};
   color: ${colors.buttonTextColor};
-
 
   font-size: 1em;
   margin: 0.5em;
@@ -74,12 +74,16 @@ const Button = styled.button`
   &:hover {
     transform: translateY(5px);
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
-    background: ${colors.buttonTextColor};
+    background: ${colors.buttonHoverColor};
     color: ${colors.buttonBackground};
   }
 `
 
-const OpenButton = styled(Button)``
+const OpenButton = styled.button`
+  display: ${(props) => (props.visible ? 'none' : 'visible')};
+  border-radius: 50%;
+  margin: 0.5em;
+`
 
 class TopBar extends Component {
   constructor(props) {
@@ -89,10 +93,19 @@ class TopBar extends Component {
     }
 
     this.handleClick = this.handleClick.bind(this)
+    this.icon = this.icon.bind(this)
   }
 
   handleClick = () => {
     this.setState((state) => ({ menuVisible: !state.menuVisible }))
+  }
+
+  icon = () => {
+    return this.state.menuVisible ? (
+      <img src={upArrow} alt={'upArrow'} height='20rem' width='20rem' />
+    ) : (
+      <img src={downArrow} alt={'DownArrow'} height='20rem' width='20rem' />
+    )
   }
 
   render() {
@@ -106,10 +119,10 @@ class TopBar extends Component {
             </NameButton>
           </Link>
         </Wrapper>
-        <ButtonWrapper>
-          <Button open onClick={() => this.handleClick()}>
-            PAINA TÄSTÄ
-          </Button>
+        <ButtonWrapper visible={this.state.menuVisible}>
+          <OpenButton onClick={() => this.handleClick()}>
+            <this.icon />
+          </OpenButton>
           <Link to='/contact'>
             <Button visible={this.state.menuVisible}>Reach out to me!</Button>
           </Link>
