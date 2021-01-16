@@ -13,6 +13,12 @@ const Wrapper = styled.section`
   border-bottom-style: outset;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
 `
+
+const ButtonWrapper = styled.section`
+  border-bottom: 1px solid #828282;
+  flex-direction: row;
+  overflow: hidden;
+`
 const shakeButton = keyframes`
 10%, 90% {
   transform: translate3d(-1px, 0, 0);
@@ -42,24 +48,27 @@ const rotate = keyframes`
 `
 
 const NameButton = styled.div`
-  font-family: East Sea Dokdo;
-  font-style: Cursive;
+  font-family: Avenir, Arial, Helvetica, sans-serif
+  font-size: 40px;
   font-size: 2em;
   margin: 0.5em;
-  float: left;
 `
 
 const Button = styled.button`
   /* Adapt the colors based on primary prop */
+  visibility: ${(props) => props.visible} ? hidden : visible;
+  display: ${(props) => props.visible} ? none : visible;
+
   background: ${colors.buttonBackground};
   color: ${colors.buttonTextColor};
 
+
   font-size: 1em;
-  margin: 1em;
+  margin: 0.5em;
   padding: 0.2em 1.3em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
-  float: right;
+  border: 2px solid ${colors.buttonBorderColor};
+  border-radius: 30px;
+  //float: right;
   transition: all 0.1s;
 
   &:hover {
@@ -70,23 +79,50 @@ const Button = styled.button`
   }
 `
 
+const OpenButton = styled(Button)``
+
 class TopBar extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      menuVisible: false,
+    }
+
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick = () => {
+    this.setState((state) => ({ menuVisible: !state.menuVisible }))
+  }
+
   render() {
     return (
-      <Wrapper>
-        <Link to='/contact'>
-          <Button>Contact</Button>
-        </Link>
-        <Link to='/skills'>
-          <Button>Skills</Button>
-        </Link>
-        <Link to='/'>
-          <Button primary>Home</Button>
-        </Link>
-        <Link to='/'>
-          <NameButton>Matias Lang</NameButton>
-        </Link>
-      </Wrapper>
+      <div>
+        <Wrapper>
+          <Link to='/'>
+            <NameButton visible={this.state.menuVisible}>
+              {' '}
+              Matias Lang
+            </NameButton>
+          </Link>
+        </Wrapper>
+        <ButtonWrapper>
+          <Button open onClick={() => this.handleClick()}>
+            PAINA TÄSTÄ
+          </Button>
+          <Link to='/contact'>
+            <Button visible={this.state.menuVisible}>Reach out to me!</Button>
+          </Link>
+          <Link to='/skills'>
+            <Button visible={this.state.menuVisible}>
+              What is my passion?
+            </Button>
+          </Link>
+          <Link to='/'>
+            <Button visible={this.state.menuVisible}>Who am I?</Button>
+          </Link>
+        </ButtonWrapper>
+      </div>
     )
   }
 }
