@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import styled from 'styled-components'
-import colors from './styles/Colors'
+import colors from './styles/colors.js'
 
 import Home from './pages/Home'
 import Skills from './pages/Skills'
@@ -10,20 +10,22 @@ import Contact from './pages/Contact'
 
 const Wrapper = styled.div`
   background: ${colors.ViewTopicColor};
-  height: 100%;
+  flex-grow: 1;
+  height: 2200px;
+  width: 100%;
 `
 
 const Main = () => {
   return (
     <Wrapper>
       <Switch>
-        <Route exact path="/">
+        <Route exact path='/'>
           <Home />
         </Route>
-        <Route path="/Skills">
+        <Route path='/Skills'>
           <Skills />
         </Route>
-        <Route path="/Contact">
+        <Route path='/Contact'>
           <Contact />
         </Route>
         <Route>

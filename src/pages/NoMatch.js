@@ -1,7 +1,7 @@
 import React from 'react'
 import { ReactComponent as SadFaceSVG } from '../components/icons/sadFace.svg'
 import styled, { keyframes } from 'styled-components'
-import Colors from '../styles/Colors'
+import colors from '../styles/colors.js'
 
 const Wrapper = styled.div`
   background-color: {props => props.colors.background};
@@ -13,7 +13,7 @@ const NotFoundText = styled.text``
 
 function NoMatch() {
   return (
-    <Wrapper props={Colors}>
+    <Wrapper props={colors}>
       <NotFoundText>
         Sorry, here is nothing for you to see. Are you sure you clicked a proper
         link?

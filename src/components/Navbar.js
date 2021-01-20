@@ -4,7 +4,7 @@ import styled, { keyframes } from 'styled-components'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
-import colors from '../styles/Colors.js'
+import colors from '../styles/colors.js'
 import downArrow from './icons/downA1.png'
 import upArrow from './icons/upA1.png'
 import { ReactComponent as UA } from './icons/upA1.svg'
@@ -15,10 +15,11 @@ import { ReactComponent as HomeButton } from './icons/HomeLogo.svg'
 //Hello this is iida
 const Wrapper = styled.section`
   //padding: 0.5rem;
+  height: 5rem;
   transition: margin 1s;
   background: ${colors.background};
   flex-direction: row-reverse;
-  overflow: hidden;
+  //overflow: hidden;
   //border-bottom: 1px solid #828282;
   //border-bottom-style: outset;
   //box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
@@ -35,7 +36,7 @@ const ButtonWrapper = styled(motion.div).attrs(() => ({
   //border-bottom: ${(props) => (props.visible ? '1px solid #828282' : '')};
   //display: flex;
   //flex-direction: row;
-  overflow: hidden;
+  //overflow: hidden;
 `
 const shakeButton = keyframes`
 10%, 90% {
@@ -67,15 +68,11 @@ const rotate = keyframes`
 
 const NameButton = styled.div`
   color: ${colors.buttonTextColor};
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
   font-family: Bodoni Moda, serif, Avenir, Arial, Helvetica, sans-serif;
   //font-style: italic;
   font-size: 40px;
   font-size: 2em;
-  margin: 0.5em;
+  //margin: 0.5em;
 `
 
 const Button = styled.button`
@@ -101,13 +98,25 @@ const Button = styled.button`
   }
 `
 
+const OpenButtonWrapper = styled.div`
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  &:hover {
+    z-index: 1;
+  }
+`
+
 const OpenButton = styled.button`
-  display: ${(props) => (props.visible ? 'none' : 'visible')};
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  border-style: none;
+  background-color: transparent;
   text-align: center;
   height: 2rem;
   width: 2rem;
-  border-radius: 30%;
-  margin: 0.5em;
+  //margin: 0.5em;
   transition: color 3s;
   padding: 0.2em;
 
@@ -168,29 +177,10 @@ class TopBar extends Component {
     return (
       <div>
         <Wrapper>
-          <Link to="/" style={{ textDecoration: 'none' }}>
+          <Link to='/' style={{ textDecoration: 'none' }}>
             <NameButton>MATIAS LANG</NameButton>
           </Link>
         </Wrapper>
-        <ButtonWrapper
-          animate={this.state.menuVisible ? 'visible' : 'hidden'}
-          visible={this.state.menuVisible}
-        >
-          {buttonNames.map((value, index) => (
-            <MenuButton
-              name={value.path}
-              text={value.text}
-              menuVisible={this.state.menuVisible}
-            ></MenuButton>
-          ))}
-        </ButtonWrapper>
-        <OpenButton
-          onClick={() => this.handleClick()}
-          animate={{ scale: 0.5 }}
-          transition={{ duration: 2 }}
-        >
-          <this.icon />
-        </OpenButton>
       </div>
     )
   }

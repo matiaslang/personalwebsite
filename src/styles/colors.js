@@ -6,7 +6,7 @@ const colors = {
   buttonTextColor: '#171717',
   buttonBorderColor: '#EBEBEB',
   footerBackgroundColor: '#EBEBEB',
-  ViewTopicColor: '#9B9B9B',
+  ViewTopicColor: '#919191',
 }
 
 export default colors

@@ -3,18 +3,20 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Main from './Main'
 import styled from 'styled-components'
-import colors from './styles/Colors'
+import colors from './styles/colors.js'
 import GlobalStyle from './globalStyles'
+import NavButton from './components/Navbutton'
 
 const Wrapper = styled.div`
   background: ${colors.background};
-  height: 100%;
+  //height: 100%;
 `
 
 const App = () => {
   return (
     <div className='App'>
       <GlobalStyle />
+      <NavButton />
       <Wrapper color={colors}>
         <Navbar />
         <Main />
