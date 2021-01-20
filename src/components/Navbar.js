@@ -7,6 +7,8 @@ import { motion } from 'framer-motion'
 import colors from '../styles/Colors'
 import downArrow from './icons/downA1.png'
 import upArrow from './icons/upA1.png'
+import { ReactComponent as UA } from './icons/upA1.svg'
+import { ReactComponent as DA } from './icons/downA1.svg'
 import { ReactComponent as ML } from './icons/ML1.svg'
 import { ReactComponent as HomeButton } from './icons/HomeLogo.svg'
 
@@ -98,14 +100,16 @@ const Button = styled.button`
 
 const OpenButton = styled.button`
   display: ${(props) => (props.visible ? 'none' : 'visible')};
-
-  border-radius: 50%;
+  text-align: center;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 30%;
   margin: 0.5em;
   transition: color 3s;
   padding: 0.2em;
 
   &:hover {
-    animation: ${shakeButton} 1.3s linear infinite;
+    animation: ${shakeButton} 1.3s ease infinite;
   }
 `
 
@@ -154,11 +158,7 @@ class TopBar extends Component {
   }
 
   icon = () => {
-    return this.state.menuVisible ? (
-      <img src={upArrow} alt={'upArrow'} height='20rem' width='20rem' />
-    ) : (
-      <img src={downArrow} alt={'DownArrow'} height='20rem' width='20rem' />
-    )
+    return this.state.menuVisible ? <UA /> : <DA />
   }
 
   render() {
