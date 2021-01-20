@@ -1,29 +1,22 @@
 import './App.css'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 import Main from './Main'
 import styled from 'styled-components'
-import { createGlobalStyle } from 'styled-components'
 import colors from './styles/Colors'
 
-const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap');
-  body {
-    font-family: 'East Sea Dokdo', sans-serif;
-  }
-`
-
 const Wrapper = styled.div`
-  background-color: ${colors.background};
-  height: 1500px;
+  background: ${colors.background};
+  height: 100%;
 `
 
-function App() {
+const App = () => {
   return (
     <div className='App'>
       <Wrapper color={colors}>
-        <GlobalStyles />
         <Navbar />
         <Main />
+        <Footer />
       </Wrapper>
     </div>
   )
