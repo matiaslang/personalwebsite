@@ -9,7 +9,7 @@ import NoMatch from './pages/NoMatch'
 import Contact from './pages/Contact'
 
 const Wrapper = styled.div`
-  background: ${colors.buttonTextColor};
+  background: ${colors.ViewTopicColor};
   height: 100%;
 `
 
@@ -17,13 +17,13 @@ const Main = () => {
   return (
     <Wrapper>
       <Switch>
-        <Route exact path='/'>
+        <Route exact path="/">
           <Home />
         </Route>
-        <Route path='/Skills'>
+        <Route path="/Skills">
           <Skills />
         </Route>
-        <Route path='/Contact'>
+        <Route path="/Contact">
           <Contact />
         </Route>
         <Route>

@@ -1,11 +1,12 @@
 const colors = {
-  background: '#F39E9E',
-  topBarBackground: '#FF7A4D',
-  buttonBackground: '#f8e8dd',
-  buttonHoverColor: '#ECD451',
+  background: '#FAF0E6',
+  topBarBackground: '#FAF0E6',
+  buttonBackground: '#fffaf0',
+  buttonHoverColor: '#EFECEC',
   buttonTextColor: '#171717',
-  buttonBorderColor: '#28FF3E',
-  footerBackgroundColor: '#E9967A',
+  buttonBorderColor: '#EBEBEB',
+  footerBackgroundColor: '#EBEBEB',
+  ViewTopicColor: '#9B9B9B',
 }
 
 export default colors

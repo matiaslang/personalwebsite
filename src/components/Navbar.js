@@ -4,7 +4,7 @@ import styled, { keyframes } from 'styled-components'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
-import colors from '../styles/Colors'
+import colors from '../styles/Colors.js'
 import downArrow from './icons/downA1.png'
 import upArrow from './icons/upA1.png'
 import { ReactComponent as UA } from './icons/upA1.svg'
@@ -67,7 +67,10 @@ const rotate = keyframes`
 
 const NameButton = styled.div`
   color: ${colors.buttonTextColor};
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   font-family: Bodoni Moda, serif, Avenir, Arial, Helvetica, sans-serif;
   //font-style: italic;
   font-size: 40px;
@@ -165,7 +168,7 @@ class TopBar extends Component {
     return (
       <div>
         <Wrapper>
-          <Link to='/' style={{ textDecoration: 'none' }}>
+          <Link to="/" style={{ textDecoration: 'none' }}>
             <NameButton>MATIAS LANG</NameButton>
           </Link>
         </Wrapper>
