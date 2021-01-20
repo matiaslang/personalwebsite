@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 import colors from '../styles/Colors'
-import downArrow from './icons/downArrow.png'
-import upArrow from './icons/upArrow.png'
+import downArrow from './icons/downA1.png'
+import upArrow from './icons/upA1.png'
 import { ReactComponent as ML } from './icons/ML1.svg'
 import { ReactComponent as HomeButton } from './icons/HomeLogo.svg'
 
@@ -63,12 +63,13 @@ const rotate = keyframes`
 `
 
 const NameButton = styled.div`
+  color: ${colors.buttonTextColor};
+
   font-family: Bodoni Moda, serif, Avenir, Arial, Helvetica, sans-serif;
   //font-style: italic;
   font-size: 40px;
   font-size: 2em;
   margin: 0.5em;
-  color: ${colors.nameTextColor};
 `
 
 const Button = styled.button`
@@ -100,6 +101,7 @@ const OpenButton = styled.button`
   border-radius: 50%;
   margin: 0.5em;
   transition: color 3s;
+  padding: 0.2em;
 
   &:hover {
     animation: ${shakeButton} 1.3s linear infinite;
@@ -183,7 +185,7 @@ class TopBar extends Component {
           animate={{ scale: 0.5 }}
           transition={{ duration: 2 }}
         >
-          <HomeButton height='2rem' width='2rem' />
+          <this.icon />
         </OpenButton>
       </div>
     )
