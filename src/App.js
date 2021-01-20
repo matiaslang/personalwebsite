@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import Main from './Main'
 import styled from 'styled-components'
 import colors from './styles/Colors'
+import GlobalStyle from './globalStyles'
 
 const Wrapper = styled.div`
   background: ${colors.background};
@@ -13,6 +14,7 @@ const Wrapper = styled.div`
 const App = () => {
   return (
     <div className='App'>
+      <GlobalStyle />
       <Wrapper color={colors}>
         <Navbar />
         <Main />

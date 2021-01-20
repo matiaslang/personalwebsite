@@ -63,11 +63,12 @@ const rotate = keyframes`
 `
 
 const NameButton = styled.div`
-  text-decoration: none;
-  font-family: Avenir, Arial, Helvetica, sans-serif;
+  font-family: Bodoni Moda, serif, Avenir, Arial, Helvetica, sans-serif;
+  //font-style: italic;
   font-size: 40px;
   font-size: 2em;
   margin: 0.5em;
+  color: ${colors.nameTextColor};
 `
 
 const Button = styled.button`
