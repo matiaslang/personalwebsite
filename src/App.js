@@ -1,56 +1,38 @@
 import './App.css'
 import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+import Footer from './components/Footer/Footer'
 import Main from './Main'
 import styled from 'styled-components'
 import colors from './styles/colors.js'
 import GlobalStyle from './globalStyles'
 import NavButton from './components/Navbutton'
 
-const Wrapper = styled.div`
+const BottomPage = styled.div`
   background: ${colors.background};
-  //height: 100%;
+  //z-index: -1;
+  height: 100%;
+  //position: absolute;
+`
+const Wrapper = styled.div`
+  font-size: 12px;
+  text-align: center;
+  z-index: -1;
+  //height: 2200px;
+  height: 100% !important;
+  width: 100%;
+  position: absolute;
+  //flex-direction: row;
 `
 
 const App = () => {
   return (
-    <div className='App'>
+    <Wrapper>
       <GlobalStyle />
-      <NavButton />
-      <Wrapper color={colors}>
-        <Navbar />
-        <Main />
-        <Footer />
-      </Wrapper>
-    </div>
+      <Navbar />
+      <Main />
+      <Footer />
+    </Wrapper>
   )
 }
-
-/* function App() {
-  return (
-    <div className='App'>
-      <Wrapper>
-        <head>
-          <TopBar />
-        </head>
-        <body>
-          <TopBar />
-        </body>
-        <footer>
-          <TopBar />
-        </footer>
-        <header className='App-header'>
-          <p>Hello to my personal website!</p>
-          <p>
-            I will be adding more information about me to this page in the near
-            future.
-          </p>
-          <Timer />
-          <p>-Matias Lang</p>
-        </header>
-      </Wrapper>
-    </div>
-  )
-} */
 
 export default App

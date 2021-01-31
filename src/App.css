@@ -7,6 +7,14 @@
   pointer-events: none;
 }
 
+
+@media (max-width: 900px) {
+  html { font-size: 15px; }
+}
+@media (max-width: 480px) {
+  html { font-size: 13px; }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

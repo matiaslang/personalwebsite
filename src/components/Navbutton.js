@@ -27,12 +27,12 @@ const Button = styled.button`
 
   background: ${colors.buttonBackground};
   color: ${colors.buttonTextColor};
-  font-size: 1em;
-  margin: 0.5em;
-  padding: 0.2em 1.3em;
+  font-size: 1rem;
+  margin: 0.5rem;
+  padding: 0.2rem 1.1rem;
   position: sticky;
   border: 2px solid ${colors.buttonBorderColor};
-  border-radius: 30px;
+  border-radius: 20rem;
   //float: right;
   transition: all 0.1s;
 
@@ -65,7 +65,7 @@ const OpenButton = styled.button`
   z-index: 1;
   position: absolute;
   //margin-top: 3rem;
-  top: ${(props) => (props.visible ? '6rem' : '3rem')};
+  top: ${(props) => (props.visible ? '3rem' : '0rem')};
   right: 51%;
   left: 49%;
 
@@ -102,7 +102,6 @@ const ButtonWrapper = styled(motion.div).attrs(() => ({
   //border-bottom: ${(props) => (props.visible ? '1px solid #828282' : '')};
   //display: flex;
   //flex-direction: row;
-  //overflow: hidden;
 `
 
 class NavButton extends Component {

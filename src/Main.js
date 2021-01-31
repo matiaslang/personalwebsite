@@ -3,15 +3,17 @@ import { Switch, Route } from 'react-router-dom'
 import styled from 'styled-components'
 import colors from './styles/colors.js'
 
-import Home from './pages/Home'
+import Home from './pages/Home/Home'
 import Skills from './pages/Skills'
 import NoMatch from './pages/NoMatch'
 import Contact from './pages/Contact'
 
 const Wrapper = styled.div`
   background: ${colors.ViewTopicColor};
-  flex-grow: 1;
-  height: 2200px;
+  //flex-grow: 1;
+  //height: 100%;
+  height: 110%;
+  overflow-y: auto;
   width: 100%;
 `
 

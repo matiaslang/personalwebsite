@@ -11,15 +11,23 @@ import { ReactComponent as UA } from './icons/upA1.svg'
 import { ReactComponent as DA } from './icons/downA1.svg'
 import { ReactComponent as ML } from './icons/ML1.svg'
 import { ReactComponent as HomeButton } from './icons/HomeLogo.svg'
+import NavButton from './Navbutton'
 
-//Hello this is iida
-const Wrapper = styled.section`
-  //padding: 0.5rem;
-  height: 5rem;
+const Wrapper = styled.div`
+  //margin-top: 100px;
+  text-size: 16px;
+  padding-bottom: 2rem;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: ${colors.background};
+  //height: 5rem;
+  top: 0;
   transition: margin 1s;
   background: ${colors.background};
   flex-direction: row-reverse;
-  //overflow: hidden;
   //border-bottom: 1px solid #828282;
   //border-bottom-style: outset;
   //box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
@@ -36,7 +44,6 @@ const ButtonWrapper = styled(motion.div).attrs(() => ({
   //border-bottom: ${(props) => (props.visible ? '1px solid #828282' : '')};
   //display: flex;
   //flex-direction: row;
-  //overflow: hidden;
 `
 const shakeButton = keyframes`
 10%, 90% {
@@ -180,6 +187,7 @@ class TopBar extends Component {
           <Link to='/' style={{ textDecoration: 'none' }}>
             <NameButton>MATIAS LANG</NameButton>
           </Link>
+          <NavButton />
         </Wrapper>
       </div>
     )
