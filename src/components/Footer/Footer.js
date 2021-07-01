@@ -16,11 +16,73 @@ const Wrapper = styled.div`
   background: ${colors.footerBackgroundColor};
   border-top: 1px solid #828282;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 `
 const Image = styled.img`
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
+  margin-top: 0.3rem;
+  margin-left: 0.5rem;
+  margin-right: 1.5rem;
+
+  @media (max-width: 440px) {
+    width: 3rem;
+    height: 3rem;
+    margin-top: 0.3rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  @media (max-width: 375px) {
+    width: 3.6rem;
+    height: 3.6rem;
+    margin-top: 0.3rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  @media (max-width: 320px) {
+    width: 2.7rem;
+    height: 2.7rem;
+    margin-top: 0.3rem;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+  }
+`
+const ImageWrapper = styled.div`
+  margin-left: 1rem;
+  margin-right: 1rem;
+  //padding: 1rem;
+  //position: absolute;
+  //float: right;
+  display: inline-block;
+  //margin: 1rem 2rem;
+
+  @media (max-width: 425px) {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    //padding: 1rem;
+    //position: absolute;
+    //float: right;
+    display: inline-block;
+    //margin: 1rem 2rem;
+  }
+
+  @media (max-width: 325px) {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    //padding: 1rem;
+    //position: absolute;
+    //float: right;
+    display: inline-block;
+    //margin: 1rem 2rem;
+  }
+`
+
+const TextWrapper = styled.div`
+  //position: absolute;
+  margin-right: 2rem;
+  float: right;
 `
 
 const TextElement = styled.text`
@@ -34,28 +96,32 @@ const TextElement = styled.text`
 const Footer = () => {
   return (
     <Wrapper>
-      <a
-        target='_blank'
-        rel='noopener noreferrer'
-        href='https://facebook.com/langmatis'
-      >
-        <Image src={fb} />
-      </a>
-      <a
-        target='_blank'
-        rel='noopener noreferrer'
-        href='https://github.com/matiaslang'
-      >
-        <Image src={gh} />
-      </a>
-      <a
-        target='_blank'
-        rel='noopener noreferrer'
-        href='https://www.linkedin.com/in/langmatias'
-      >
-        <Image src={li} />
-      </a>
-      <TextElement>©Matias Lang, 2021</TextElement>
+      <ImageWrapper>
+        <a
+          target='_blank'
+          rel='noopener noreferrer'
+          href='https://facebook.com/langmatis'
+        >
+          <Image src={fb} />
+        </a>
+        <a
+          target='_blank'
+          rel='noopener noreferrer'
+          href='https://github.com/matiaslang'
+        >
+          <Image src={gh} />
+        </a>
+        <a
+          target='_blank'
+          rel='noopener noreferrer'
+          href='https://www.linkedin.com/in/langmatias'
+        >
+          <Image src={li} />
+        </a>
+      </ImageWrapper>
+      <TextWrapper>
+        <TextElement>©Matias Lang, 2021</TextElement>
+      </TextWrapper>
     </Wrapper>
   )
 }

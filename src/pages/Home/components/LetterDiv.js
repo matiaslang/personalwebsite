@@ -5,15 +5,42 @@ import colors from '../../../styles/colors'
 
 import watermark from '../pictures/watermark.png'
 
+import OpeningText from './OpeningText'
+
 const Wrapper = styled.div`
   //text-align: center;
   //height: 100%;
   //margin-top: 12rem;
-  font-size: 0px;
+  //font-size: 10px;
   display: flex;
   justify-content: center;
   //align-items: center;
 `
+const MiddleOpeningDiv = styled.div`
+  position: fixed;
+  transform: translateY(${({ animate }) => (animate ? '0' : '-100vw')});
+  transition: transform 1s;
+  height: 70%;
+  //width: 100%;
+  left: 0;
+  right: 0;
+  background-color: ${colors.MiddleLetterBackground};
+
+  &:before {
+    top: -20%;
+    clip-path: polygon(0 0, 100% 0%, 100% 90%, 50% 100%, 0 90%);
+    background: red;
+    position: absolute;
+    transform: translateY(${({ animate }) => (animate ? '0' : '-100vw')});
+    transition: transform 1s;
+    display: block;
+    height: 60%;
+    width: 110%;
+    left: 0;
+    background-color: ${colors.LetterBackground};
+  }
+`
+
 const UpperOpeningDiv = styled.div`
   clip-path: polygon(0 0, 100% 0%, 100% 90%, 50% 100%, 0 90%);
   position: fixed;
@@ -88,9 +115,18 @@ const LetterDiv = () => {
 
   return (
     <Wrapper ref={ourRef}>
+      <MiddleOpeningDiv animate={show} />
       <UpperOpeningDiv animate={show} />
-      <LowerOpeningDiv animate={show} />
-      <WatermarkImage src={watermark} animate={show} />
+      <LowerOpeningDiv animate={show}>
+        <OpeningText />
+      </LowerOpeningDiv>
+      <WatermarkImage
+        src={watermark}
+        animate={show}
+        onClick={() => {
+          doShow(!show)
+        }}
+      />
     </Wrapper>
   )
 }

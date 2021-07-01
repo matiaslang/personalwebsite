@@ -11,6 +11,7 @@ const colors = {
   sideBarItem: '#492C09',
   sideBarItemColor: '#787878',
   LetterBackground: '#FFF',
+  MiddleLetterBackground: '#FBF4E0',
 }
 
 export default colors
