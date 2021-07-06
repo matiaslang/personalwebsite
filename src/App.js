@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
+import ReactDOM from 'react-dom'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,24 +9,24 @@ import {
   Link,
   useRouteMatch,
   useParams,
-  useHistory,
-  Redirect,
-  withRouter,
   BrowserRouter,
 } from 'react-router-dom'
 import './App.css'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import Paper from '@material-ui/core/Paper'
+import Home from './pages/Home/home'
+import Bottombar from './components/Bottombar'
 
 const menuButton = styled.button``
-const Wrapper = styled.section`
+const Wrapper = styled.div`
+  height: 100%;
+
   background-color: papayawhip;
 `
 
 const App = () => {
   const allTabs = ['/', '/memorygame', '/nothing']
-  let history = useHistory()
   const handleChange = (event, value) => {
     console.log('Redirecting to:')
     console.log(value)
@@ -42,7 +44,6 @@ const App = () => {
                 <Paper className={'ClassName'}>
                   <Tabs
                     value={location.pathname}
-                    indicatorColor='secondary'
                     variant='fullWidth'
                     textColor='primary'
                     centered
@@ -62,7 +63,6 @@ const App = () => {
                     <Tab
                       label='Noothiiing....'
                       value='/nothing'
-                      disableRipple
                       component={Link}
                       to={allTabs[2]}
                     />
@@ -70,27 +70,30 @@ const App = () => {
                 </Paper>
 
                 <Switch>
-                  <Route path={allTabs[0]}>
-                    <About />
-                  </Route>
-                  <Route path={allTabs[1]}>
-                    <Topics />
-                  </Route>
-                  <Route path={allTabs[2]}>
-                    <Home />
-                  </Route>
+                  <Route
+                    exact
+                    path={allTabs[0]}
+                    render={() => <Home />}
+                  ></Route>
+                  <Route
+                    exact
+                    path={allTabs[1]}
+                    render={() => <div>toinen testi </div>}
+                  ></Route>
+                  <Route
+                    exact
+                    path={allTabs[2]}
+                    render={() => <div>Kolmas testi</div>}
+                  ></Route>
                 </Switch>
               </Fragment>
             )}
           />
+          <Bottombar />
         </Wrapper>
       </BrowserRouter>
     </div>
   )
-}
-
-function Home() {
-  return <h2>Home</h2>
 }
 
 function About() {
@@ -135,3 +138,5 @@ function Topic() {
 }
 
 export default App
+const rootElement = document.getElementById('root')
+ReactDOM.render(<App />, rootElement)
