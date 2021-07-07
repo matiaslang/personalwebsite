@@ -5,9 +5,12 @@ const Wrapper = styled.div`
   border: 5px solid red;
   margin: 20px;
   padding: 450px;
+  //height:
 `
 
-const Question = styled.h1``
+const Question = styled.h1`
+  font-size: 40px;
+`
 
 const Response = styled.p``
 

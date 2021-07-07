@@ -19,6 +19,8 @@ import ListItemText from '@material-ui/core/ListItemText'
 import InboxIcon from '@material-ui/icons/MoveToInbox'
 import MailIcon from '@material-ui/icons/Mail'
 import { HashLink as Link } from 'react-router-hash-link'
+import MenuItems from './MenuItems'
+import Grid from '@material-ui/core/Grid'
 
 const drawerWidth = 150
 
@@ -83,8 +85,6 @@ export default function PersistentDrawerLeft() {
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
-
       <div>
         <IconButton
           color='inherit'
@@ -102,6 +102,7 @@ export default function PersistentDrawerLeft() {
         variant='temporary'
         anchor='left'
         open={open}
+        closeAfterTransition
         classes={{
           paper: classes.drawerPaper,
         }}
@@ -115,32 +116,14 @@ export default function PersistentDrawerLeft() {
             )}
           </IconButton>
         </div>
-        <Divider />
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <Link to='/#InfoObject1' onClick={handleDrawerClose}>
-          GO TO 1
-        </Link>
+        <Grid
+          container
+          direction='column'
+          justifyContent='space-evenly'
+          alignItems='center'
+        >
+          <MenuItems closeDrawer={handleDrawerClose}></MenuItems>
+        </Grid>
       </Drawer>
     </div>
   )
