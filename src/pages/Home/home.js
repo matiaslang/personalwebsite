@@ -1,28 +1,30 @@
-import React, { Fragment } from 'react'
-import texts from './texts.json'
-import array from './array.json'
-import styled from 'styled-components'
-import InfoObject from './InfoObject'
-import ObjectList from './ObjectList'
-import SocialMedia from './SocialMedia'
+import { useRef } from 'react';
+import useScrollSnap from 'react-use-scroll-snap';
+import questionsAndAnswers from '../../assets/questionsAndAnswers.json';
+import styled from 'styled-components';
 import PersistentDrawerLeft from '../../components/Menudrawer'
+import InfoObject from './InfoObject';
 
 const Wrapper = styled.div`
-  background-color: papayawhip;
-  text-align: center;
-  padding-left: 20px;
-  padding-right: 20px;
-  height: 101vh;
+  padding-left: 2rem;
+  padding-right: 2rem;
 `
 
 const Home = () => {
+  const scrollRef = useRef(null);
+  useScrollSnap({ ref: scrollRef, duration: 50, delay: 0 });
+
   return (
     <Wrapper>
       <PersistentDrawerLeft />
-      <ObjectList list={array} />
-      <SocialMedia />
+      <section ref={scrollRef}>
+        {questionsAndAnswers.map(data => (
+          <InfoObject infoData={data} />
+        ))}
+      </section>
+      Hoem version 2
     </Wrapper>
-  )
+  );
 }
 
-export default Home
+export default Home;
