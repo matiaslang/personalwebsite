@@ -1,26 +1,42 @@
 [
   {
     "question": "What is this page about?",
-    "answer":"This page is created by me, Matias Lang. I wan't to go through and tell about me, who I am and what kind of stuff I am into. I will also add some small projects to here.",
+    "answer": "This page is created by me, Matias Lang. I wan't to go through and tell about me, who I am and what kind of stuff I am into. I will also add some small projects to here.",
     "icons": null,
-    "id": 0
+    "id": 0,
+    "prev": null,
+    "prevId": null,
+    "next": "Who?",
+    "nextId": "#page1"
   },
   {
     "question": "But, who are you..?",
     "answer": "I am Matias Lang. I live in Oulu, Finland and I am interested in learning, and creating new. I do like sports, nice people and educational talks.",
-    "icons":null,
-    "id": 1
+    "icons": "personal",
+    "id": 1,
+    "prev": "What?",
+    "prevId": "#page0",
+    "next": "How?",
+    "nextId": "#page2"
   },
   {
     "question": "Ok, what can you do?",
     "answer": "I'm glad you asked. I am interested in bunch of different stuff, but I have mainly worked on .NET / C# and some JavaScript. On my free time I have used Python, C, C++ and Java. On behalf of used ecosystems, I have mainly worked with AWS stuff(Lambdas, containers, SNS -queues, Dynamo databases etc..)",
     "icons": null,
-    "id": 2
+    "id": 2,
+    "prev": "How",
+    "prevId": "#page1",
+    "next": "Contact",
+    "nextId": "#page3"
   },
   {
     "question": "Riiight, how can I find more information about you?",
     "answer": "Well you can find more information using these channels: ",
     "icons": "social",
-    "id": 3
+    "id": 3,
+    "prev": "Contact",
+    "prevId": "#page2",
+    "next": "Home",
+    "nextId": "#page0"
   }
 ]

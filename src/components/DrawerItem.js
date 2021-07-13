@@ -26,7 +26,7 @@ const iconNames = [
 ]
 
 const DrawerItem = ({ label, num, func }) => {
-  const link = '/#InfoObject' + num
+  const link = '/#page' + num
   return (
     <Wrapper>
       <Link smooth to={link} onClick={func}>
