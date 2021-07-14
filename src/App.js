@@ -11,7 +11,6 @@ import {
   useParams,
   BrowserRouter,
 } from 'react-router-dom'
-import './App.css'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import Paper from '@material-ui/core/Paper'
@@ -89,6 +88,7 @@ const App = () => {
               </Fragment>
             )}
           />
+
           <Bottombar />
         </Wrapper>
       </BrowserRouter>

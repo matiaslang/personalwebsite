@@ -7,6 +7,7 @@ import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward'
 import IconButton from '@material-ui/core/IconButton'
 import HomeIcon from '@material-ui/icons/Home'
 import { makeStyles } from '@material-ui/core/styles'
+import TechnologyList from '../../components/TechnologyList'
 
 const Wrapper = styled.div`
   background-color: papayawhip;
@@ -43,14 +44,15 @@ const pictureAnimation = keyframes`
 `
 
 const Question = styled.h1`
-  text-align: left;
+  text-align: center;
   padding: 0 10% 0 10%;
-  font-size: 3rem;
+  font-size: 3.5rem;
 `
 
 const Answer = styled.p`
-  text-align: left;
+  text-align: center;
   padding: 0 10% 0 10%;
+  font-size: 1rem;
 `
 
 const IconLink = styled.a`
@@ -91,8 +93,8 @@ const UpArrow = styled.div`
   width: 2rem;
 `
 
-const resolveIcons = (icons) => {
-  switch (icons) {
+const resolveExtras = (extra, technologies) => {
+  switch (extra) {
     case 'social':
       return (
         <IconLinksWrapper>
@@ -111,6 +113,8 @@ const resolveIcons = (icons) => {
           <PersonalBasePicture />
         </PersonalPicWrapper>
       )
+    case 'tehcnologies':
+      return <TechnologyList list={technologies} />
     default:
       return null
   }
@@ -200,7 +204,7 @@ const InfoObject = ({ infoData }) => {
         />
         <Question>{infoData.question}</Question>
         <Answer>{infoData.answer}</Answer>
-        {resolveIcons(infoData.icons)}
+        {resolveExtras(infoData.extra, infoData.technologies)}
         <DownButton
           function={HandleMovement}
           id={infoData.id}

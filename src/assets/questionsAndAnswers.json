@@ -1,42 +1,48 @@
 [
   {
     "question": "What is this page about?",
-    "answer": "This page is created by me, Matias Lang. I wan't to go through and tell about me, who I am and what kind of stuff I am into. I will also add some small projects to here.",
-    "icons": null,
-    "id": 0,
-    "prev": null,
-    "prevId": null,
-    "next": "Who?",
-    "nextId": "#page1"
+    "answer": "This page is created by me, Matias Lang. I wan't to go through and tell about me, who I am and what kind of stuff I am into. I will also add some small projects to here at some point.",
+    "extra": null,
+    "id": 0
   },
   {
     "question": "But, who are you..?",
-    "answer": "I am Matias Lang. I live in Oulu, Finland and I am interested in learning, and creating new. I do like sports, nice people and educational talks.",
-    "icons": "personal",
-    "id": 1,
-    "prev": "What?",
-    "prevId": "#page0",
-    "next": "How?",
-    "nextId": "#page2"
+    "answer": "I am Matias Lang. I live in Oulu, Finland and I am interested in learning, and creating new. I do like sports, nice people and educational talks. I like to play with the team, and that is what I am good at. However, this does not mean that I need a person by my side in order to success",
+    "extra": "personal",
+    "id": 1
   },
   {
     "question": "Ok, what can you do?",
-    "answer": "I'm glad you asked. I am interested in bunch of different stuff, but I have mainly worked on .NET / C# and some JavaScript. On my free time I have used Python, C, C++ and Java. On behalf of used ecosystems, I have mainly worked with AWS stuff(Lambdas, containers, SNS -queues, Dynamo databases etc..)",
-    "icons": null,
+    "answer": "I'm glad you asked. I am interested in bunch of different stuff, and I am always ready to take a new challenge. However, I will list some of the technologies which I have worked with below:",
+    "extra": "tehcnologies",
     "id": 2,
-    "prev": "How",
-    "prevId": "#page1",
-    "next": "Contact",
-    "nextId": "#page3"
+    "technologies": {
+      "Languages": [
+        "C",
+        "C#",
+        "C++",
+        "Java",
+        "Javascript",
+        "Python",
+        "HTML",
+        "CSS"
+      ],
+      "Technologies": [".NET", "AWS", "Docker", "Linux", "GIT"],
+      "AWS": [
+        "DynamoDB",
+        "SNS",
+        "S3Bucket",
+        "Cloudformation",
+        "Lambda",
+        "ECS",
+        "Cloudwatch"
+      ]
+    }
   },
   {
     "question": "Riiight, how can I find more information about you?",
-    "answer": "Well you can find more information using these channels: ",
-    "icons": "social",
-    "id": 3,
-    "prev": "Contact",
-    "prevId": "#page2",
-    "next": "Home",
-    "nextId": "#page0"
+    "answer": "Hey, that is terriffic! I can't wait to hear from you. You can contact me using the linkedIn page below. There is also a link to GitHub, if you wan't to see something I have been working with ( this website is there as well... ): ",
+    "extra": "social",
+    "id": 3
   }
 ]

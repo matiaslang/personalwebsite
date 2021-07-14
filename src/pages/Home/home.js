@@ -2,7 +2,6 @@ import { useRef } from 'react'
 import useScrollSnap from 'react-use-scroll-snap'
 import questionsAndAnswers from '../../assets/questionsAndAnswers.json'
 import styled from 'styled-components'
-import PersistentDrawerLeft from '../../components/Menudrawer'
 import InfoObject from './InfoObject'
 
 const Wrapper = styled.div`
@@ -18,7 +17,7 @@ const Home = () => {
     <Wrapper>
       <section ref={scrollRef}>
         {questionsAndAnswers.map((data) => (
-          <InfoObject infoData={data} />
+          <InfoObject infoData={data} key={`child-${data.id}`} />
         ))}
       </section>
     </Wrapper>
