@@ -2,12 +2,10 @@ import styled, { keyframes } from 'styled-components'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
 import personalPhoto from '../../assets/personalPhoto.png'
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward'
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward'
-import IconButton from '@material-ui/core/IconButton'
-import HomeIcon from '@material-ui/icons/Home'
 import { makeStyles } from '@material-ui/core/styles'
 import TechnologyList from '../../components/TechnologyList'
+import UpButton from '../../components/UpButton'
+import DownButton from '../../components/DownButton'
 
 const Wrapper = styled.div`
   background-color: papayawhip;
@@ -86,13 +84,6 @@ const PersonalGradientPicture = styled.div`
   animation-iteration-count: infinite;
 `
 
-const UpArrow = styled.div`
-  background-image: url(${ArrowUpwardIcon});
-  background-size: cover;
-  height: 2rem;
-  width: 2rem;
-`
-
 const resolveExtras = (extra, technologies) => {
   switch (extra) {
     case 'social':
@@ -120,48 +111,6 @@ const resolveExtras = (extra, technologies) => {
   }
 }
 
-const UpButton = (props) => {
-  if (props.id > 0) {
-    return (
-      <IconButton
-        color='default'
-        onClick={(e) => props.function(props.id, 'up')}
-        size='medium'
-        className={props.classes.upButton}
-      >
-        <ArrowUpwardIcon />
-      </IconButton>
-    )
-  }
-  return null
-}
-
-const DownButton = (props) => {
-  if (props.id < 3) {
-    return (
-      <IconButton
-        color='default'
-        onClick={(e) => props.function(props.id, 'down')}
-        size='medium'
-        className={props.classes.upButton}
-      >
-        <ArrowDownwardIcon />
-      </IconButton>
-    )
-  } else if (props.id === 3) {
-    return (
-      <IconButton
-        color='default'
-        onClick={(e) => props.function(props.id, 'home')}
-        size='medium'
-        className={props.classes.upButton}
-      >
-        <HomeIcon />
-      </IconButton>
-    )
-  }
-}
-
 const useStyles = makeStyles({
   upButton: {
     //position: 'absolute',
@@ -179,18 +128,22 @@ const InfoObject = ({ infoData }) => {
   const classes = useStyles()
 
   const HandleMovement = (id, direction) => {
-    if (direction === 'home') {
-      document.getElementById('page0').scrollIntoView({ behavior: 'smooth' })
-    }
-    if (direction === 'up') {
-      document
-        .getElementById('page' + (id - 1))
-        .scrollIntoView({ behavior: 'smooth' })
-    }
-    if (direction === 'down') {
-      document
-        .getElementById('page' + (id + 1))
-        .scrollIntoView({ behavior: 'smooth' })
+    switch (direction) {
+      case 'home':
+        document.getElementById('page0').scrollIntoView({ behavior: 'smooth' })
+        break
+      case 'up':
+        document
+          .getElementById('page' + (id - 1))
+          .scrollIntoView({ behavior: 'smooth' })
+        break
+      case 'down':
+        document
+          .getElementById('page' + (id + 1))
+          .scrollIntoView({ behavior: 'smooth' })
+        break
+      default:
+        break
     }
   }
 
