@@ -15,6 +15,7 @@ import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import Paper from '@material-ui/core/Paper'
 import Home from './pages/Home/home'
+import Contact from './pages/Contact/contact'
 import Bottombar from './components/Bottombar'
 
 const menuButton = styled.button``
@@ -25,7 +26,7 @@ const Wrapper = styled.div`
 `
 
 const App = () => {
-  const allTabs = ['/', '/memorygame', '/nothing']
+  const allTabs = ['/', '/contact', '/nothing']
   const handleChange = (event, value) => {
     console.log('Redirecting to:')
     console.log(value)
@@ -54,8 +55,8 @@ const App = () => {
                       to={allTabs[0]}
                     />
                     <Tab
-                      label='Memory Game'
-                      value='/memorygame'
+                      label='Contact Me'
+                      value='/contact'
                       component={Link}
                       to={allTabs[1]}
                     />
@@ -77,7 +78,7 @@ const App = () => {
                   <Route
                     exact
                     path={allTabs[1]}
-                    render={() => <div>toinen testi </div>}
+                    render={() => <Contact />}
                   ></Route>
                   <Route
                     exact
